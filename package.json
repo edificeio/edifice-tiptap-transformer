@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@edifice-tiptap-extensions/extension-alert": "1.7.1",
-    "@edifice-tiptap-extensions/extension-attachment": "1.7.1",
+    "@edifice-tiptap-extensions/extension-attachment": "1.7.2-hotfix-attachment.1732722943753",
     "@edifice-tiptap-extensions/extension-audio": "1.7.1",
     "@edifice-tiptap-extensions/extension-font-size": "1.7.1",
     "@edifice-tiptap-extensions/extension-heading": "1.7.1",
