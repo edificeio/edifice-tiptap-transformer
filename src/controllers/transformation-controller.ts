@@ -88,6 +88,18 @@ const EXTENSIONS = [
   Attachment,
 ];
 
+function cleanIrregularCharacters(htmlString: string) {
+  // Delete empty inline style attributes
+  htmlString = htmlString.replace(/ style=""/g, '');
+
+  // Delete invisible characters and irregular spaces
+  htmlString = htmlString.replace(
+    /[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g,
+    ' ',
+  );
+
+  return htmlString;
+}
 export function transformController(
   req: AuthenticatedRequest,
   res: Response,
@@ -103,6 +115,9 @@ export function transformController(
     res.send('No specified content to transform.');
     return Promise.resolve();
   } else {
+    if (data.htmlContent) {
+      data.htmlContent = cleanIrregularCharacters(data.htmlContent);
+    }
     if (data.requestedFormats.includes(TransformationFormat.HTML)) {
       // Transforming content to HTML
       if (data.jsonContent != null) {
