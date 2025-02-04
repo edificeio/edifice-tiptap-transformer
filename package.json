@@ -21,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@edifice.io/tiptap-extensions": "2.1.0",
+    "@edifice.io/tiptap-extensions": "develop",
     "@tiptap/core": "2.11.0",
     "@tiptap/extension-color": "2.11.0",
     "@tiptap/extension-font-family": "2.11.0",
