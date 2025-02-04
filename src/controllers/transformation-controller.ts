@@ -70,7 +70,7 @@ const EXTENSIONS = [
   TableHeader,
   TableOrTemplateCell,
   TextAlign.configure({
-    types: ['heading', 'paragraph', 'custom-image', 'video'],
+    types: ['heading', 'paragraph', 'custom-image', 'video', 'audio'],
   }),
   CustomHeading.configure({
     levels: [1, 2],
