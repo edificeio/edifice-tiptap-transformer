@@ -102,7 +102,10 @@ export function transformController(
   serviceVersion: number,
 ): Promise<void> {
   const data: ContentTransformerRequest = req.body as ContentTransformerRequest;
-  const extensions = [...EXTENSIONS, ...data.additionalExtensionIds.map((extensionId) => ADDITIONAL_EXTENSIONS.get(extensionId))];
+  const extensions: any[] = [...EXTENSIONS];
+  if (data.additionalExtensionIds !== null && data.additionalExtensionIds.length > 0) {
+    extensions.concat(data.additionalExtensionIds.map((extensionId) => ADDITIONAL_EXTENSIONS.get(extensionId)));
+  }
   let generatedHtmlContent;
   let generatedJsonContent;
   let plainTextContent;
