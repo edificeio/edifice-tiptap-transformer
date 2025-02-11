@@ -5,10 +5,11 @@ export interface AuthenticatedRequest extends Request {
 }
 
 export interface ContentTransformerRequest {
-  requestedFormats: [string];
+  requestedFormats: string[];
   contentVersion: number;
   htmlContent: string;
   jsonContent: any;
+  additionalExtensionIds: string[];
 }
 
 export interface ContentTransformerResponse {
