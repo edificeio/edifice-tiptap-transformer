@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@edifice.io/tiptap-extensions':
         specifier: develop
-        version: 2.1.1-develop.20250219165241(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
+        version: 2.1.1-develop.20250219172820(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
       '@tiptap/core':
         specifier: 2.11.0
         version: 2.11.0(@tiptap/pm@2.11.0)
@@ -184,11 +184,11 @@ packages:
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
     engines: {node: '>=18'}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219165241':
-    resolution: {integrity: sha512-cEmiiwS49XPoGK+A9OCxACm/NxrBpazY5/bZTY3HoWGyAyJwKeRq5sBmBCwqbWUM+xERcrcxNcnPlf7eQPnDmQ==}
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219172820':
+    resolution: {integrity: sha512-tGzF9RL0BE5u4zcvomH6yR/zxyc6h38k9hRaEtALPi0vP+nt6WXPAOORxA7h5F/n9EZKeeM6zVag2aXhK77n6A==}
 
-  '@edifice.io/utilities@2.1.1-develop.20250219165241':
-    resolution: {integrity: sha512-e+h0NIeXU0RIzDRZsEegBQVTKd3HutVo6IgHa3Czp/8lDoU1J+M7Wx4nxw+O80552vdLFNbXYhz5zuld+fUTOw==}
+  '@edifice.io/utilities@2.1.1-develop.20250219172820':
+    resolution: {integrity: sha512-w9sJ5vqOCXSF3aGwhccHiu6HdWV6qGl4CzDYWL9h6gCQiH0cswF62mdY5R704iB1a0FOJC4DqjUsF3qxppMXzQ==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -2338,9 +2338,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219165241(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219172820(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
     dependencies:
-      '@edifice.io/utilities': 2.1.1-develop.20250219165241
+      '@edifice.io/utilities': 2.1.1-develop.20250219172820
       '@tiptap/core': 2.11.0(@tiptap/pm@2.11.0)
       '@tiptap/extension-bold': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
       '@tiptap/extension-document': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
@@ -2374,7 +2374,7 @@ snapshots:
       - terser
       - typescript
 
-  '@edifice.io/utilities@2.1.1-develop.20250219165241': {}
+  '@edifice.io/utilities@2.1.1-develop.20250219172820': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
