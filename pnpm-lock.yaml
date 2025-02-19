@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@edifice.io/tiptap-extensions':
         specifier: develop
-        version: 2.1.1-develop.20250217183643(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
+        version: 2.1.1-develop.20250219130644(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
       '@tiptap/core':
         specifier: 2.11.0
         version: 2.11.0(@tiptap/pm@2.11.0)
@@ -184,11 +184,11 @@ packages:
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
     engines: {node: '>=18'}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250217183643':
-    resolution: {integrity: sha512-/otEAtgWLK6M2vW+uZQyJGuKQABNnvNmUOEKwDfrn3RKV4IjI0e9u/tuHACuNiumC8tb7OXQLUlGfIwFKsvxVw==}
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219130644':
+    resolution: {integrity: sha512-7wiYx/p/S5/T7W9GY7u+mmeLAOtmr+TNIXlpizgFSd5N0oFhe6NbLWGBVhveq31nsZqEjlnQAHFhivNSqNiPFQ==}
 
-  '@edifice.io/utilities@2.1.1-develop.20250217183643':
-    resolution: {integrity: sha512-SgX+qTEBGmYpQSOb9ZacdqbeQ19njULLKUG5YNleQu5LxzZtufcRGZG7F3RAkXPne704Oo/9M7kK5Bbt96IZew==}
+  '@edifice.io/utilities@2.1.1-develop.20250219130644':
+    resolution: {integrity: sha512-pIZ3axIHNTWjB7etdx0u/EIHavI7LmeYxPMvs4HkZv9VX4O8P02A/SrtSBo6DISdozC/Jaq/+0xiuX26ns867A==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1272,8 +1272,8 @@ packages:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
     engines: {node: ^10.12.0 || >=12.0.0}
 
-  flatted@3.3.2:
-    resolution: {integrity: sha512-AiwGJM8YcNOaobumgtng+6NHuOqC3A7MixFeDafM3X9cIUM+xUXoS5Vfgf+OihAYe20fxqNM9yPBXJzRtZ/4eA==}
+  flatted@3.3.3:
+    resolution: {integrity: sha512-GX+ysw4PBCz0PzosHDepZGANEuFCMLrnRTiEy9McGjmkCQYwRq4A/X786G/fjM/+OjsWSU1ZrY5qyARZmO/uwg==}
 
   form-data@4.0.2:
     resolution: {integrity: sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w==}
@@ -2338,9 +2338,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250217183643(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219130644(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
     dependencies:
-      '@edifice.io/utilities': 2.1.1-develop.20250217183643
+      '@edifice.io/utilities': 2.1.1-develop.20250219130644
       '@tiptap/core': 2.11.0(@tiptap/pm@2.11.0)
       '@tiptap/extension-bold': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
       '@tiptap/extension-document': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
@@ -2374,7 +2374,7 @@ snapshots:
       - terser
       - typescript
 
-  '@edifice.io/utilities@2.1.1-develop.20250217183643': {}
+  '@edifice.io/utilities@2.1.1-develop.20250219130644': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -3515,11 +3515,11 @@ snapshots:
 
   flat-cache@3.2.0:
     dependencies:
-      flatted: 3.3.2
+      flatted: 3.3.3
       keyv: 4.5.4
       rimraf: 3.0.2
 
-  flatted@3.3.2: {}
+  flatted@3.3.3: {}
 
   form-data@4.0.2:
     dependencies:
