@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@edifice.io/tiptap-extensions':
         specifier: develop
-        version: 2.1.1-develop.20250219172820(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
+        version: 2.1.1-develop.20250220155729(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)
       '@tiptap/core':
         specifier: 2.11.0
         version: 2.11.0(@tiptap/pm@2.11.0)
@@ -184,11 +184,11 @@ packages:
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
     engines: {node: '>=18'}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219172820':
-    resolution: {integrity: sha512-tGzF9RL0BE5u4zcvomH6yR/zxyc6h38k9hRaEtALPi0vP+nt6WXPAOORxA7h5F/n9EZKeeM6zVag2aXhK77n6A==}
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250220155729':
+    resolution: {integrity: sha512-ToJEJkaHPUcFt76hP6nWoVa2u/jxGe9KrPc99AjX6b7+gPTgqfcpu2EwfxnMwiQEs7OpXFqJ+M+Dz4wYlKcqPA==}
 
-  '@edifice.io/utilities@2.1.1-develop.20250219172820':
-    resolution: {integrity: sha512-w9sJ5vqOCXSF3aGwhccHiu6HdWV6qGl4CzDYWL9h6gCQiH0cswF62mdY5R704iB1a0FOJC4DqjUsF3qxppMXzQ==}
+  '@edifice.io/utilities@2.1.1-develop.20250220155729':
+    resolution: {integrity: sha512-P98cQ8eaJT5PxBuxmiRq1sBQ9NOtcenJ0YqayMX14gUqKdxS5ETGdS1AvLmEzD6Jzyc8GW3jidChKJsATbbwlg==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1764,8 +1764,8 @@ packages:
   prosemirror-collab@1.3.1:
     resolution: {integrity: sha512-4SnynYR9TTYaQVXd/ieUvsVV4PDMBzrq2xPUWutHivDuOshZXqQ5rGbZM84HEaXKbLdItse7weMGOUdDVcLKEQ==}
 
-  prosemirror-commands@1.6.2:
-    resolution: {integrity: sha512-0nDHH++qcf/BuPLYvmqZTUUsPJUCPBUXt0J1ErTcDIS369CTp773itzLGIgIXG4LJXOlwYCr44+Mh4ii6MP1QA==}
+  prosemirror-commands@1.7.0:
+    resolution: {integrity: sha512-6toodS4R/Aah5pdsrIwnTYPEjW70SlO5a66oo5Kk+CIrgJz3ukOoS+FYDGqvQlAX5PxoGWDX1oD++tn5X3pyRA==}
 
   prosemirror-dropcursor@1.8.1:
     resolution: {integrity: sha512-M30WJdJZLyXHi3N8vxN6Zh5O8ZBbQCz0gURTfPmTIBNQ5pxrdU7A58QkNqfa98YEjSAL1HUyyU34f6Pm5xBSGw==}
@@ -2338,9 +2338,9 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@edifice.io/tiptap-extensions@2.1.1-develop.20250219172820(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
+  '@edifice.io/tiptap-extensions@2.1.1-develop.20250220155729(@types/node@20.17.19)(rollup@4.34.8)(typescript@5.3.3)':
     dependencies:
-      '@edifice.io/utilities': 2.1.1-develop.20250219172820
+      '@edifice.io/utilities': 2.1.1-develop.20250220155729
       '@tiptap/core': 2.11.0(@tiptap/pm@2.11.0)
       '@tiptap/extension-bold': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
       '@tiptap/extension-document': 2.11.0(@tiptap/core@2.11.0(@tiptap/pm@2.11.0))
@@ -2374,7 +2374,7 @@ snapshots:
       - terser
       - typescript
 
-  '@edifice.io/utilities@2.1.1-develop.20250219172820': {}
+  '@edifice.io/utilities@2.1.1-develop.20250220155729': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
@@ -2804,7 +2804,7 @@ snapshots:
     dependencies:
       prosemirror-changeset: 2.2.1
       prosemirror-collab: 1.3.1
-      prosemirror-commands: 1.6.2
+      prosemirror-commands: 1.7.0
       prosemirror-dropcursor: 1.8.1
       prosemirror-gapcursor: 1.3.2
       prosemirror-history: 1.4.1
@@ -4005,7 +4005,7 @@ snapshots:
     dependencies:
       prosemirror-state: 1.4.3
 
-  prosemirror-commands@1.6.2:
+  prosemirror-commands@1.7.0:
     dependencies:
       prosemirror-model: 1.24.1
       prosemirror-state: 1.4.3
@@ -4050,7 +4050,7 @@ snapshots:
   prosemirror-menu@1.2.4:
     dependencies:
       crelt: 1.0.6
-      prosemirror-commands: 1.6.2
+      prosemirror-commands: 1.7.0
       prosemirror-history: 1.4.1
       prosemirror-state: 1.4.3
 
