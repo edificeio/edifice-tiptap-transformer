@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@edifice.io/tiptap-extensions':
-    specifier: develop
-    version: 2.1.1-develop.20250220180035(@types/node@20.17.19)(typescript@5.3.3)
+    specifier: 2.1.2
+    version: 2.1.2(@types/node@20.17.19)(typescript@5.3.3)
   '@tiptap/core':
     specifier: 2.11.0
     version: 2.11.0(@tiptap/pm@2.11.0)
@@ -221,10 +221,10 @@ packages:
     engines: {node: '>=18'}
     dev: false
 
-  /@edifice.io/tiptap-extensions@2.1.1-develop.20250220180035(@types/node@20.17.19)(typescript@5.3.3):
-    resolution: {integrity: sha512-zXJDAcDu2KjAgvM2Bw1Xygm4/Ed3VJcaR1LFPqevgbU+L8NgYzXenhyFKdPEz3fNjjImXZC2mZzbrk8MELTpmg==}
+  /@edifice.io/tiptap-extensions@2.1.2(@types/node@20.17.19)(typescript@5.3.3):
+    resolution: {integrity: sha512-nDdZ020IfIn0C4+1uG3rUPzivGCT8L/PRv7d94c6emE3ZtjCqy41t5I9zwncsUf+OmkYWNQcPFrUSJ8jiMH+MA==}
     dependencies:
-      '@edifice.io/utilities': 2.1.1-develop.20250220180035
+      '@edifice.io/utilities': 2.1.2
       '@tiptap/core': 2.11.0(@tiptap/pm@2.11.0)
       '@tiptap/extension-bold': 2.11.0(@tiptap/core@2.11.0)
       '@tiptap/extension-document': 2.11.0(@tiptap/core@2.11.0)
@@ -259,8 +259,8 @@ packages:
       - typescript
     dev: false
 
-  /@edifice.io/utilities@2.1.1-develop.20250220180035:
-    resolution: {integrity: sha512-iR6jexWBPxEf0wYKYwYzg1A8cAJ+TG7KFoeUvNqqsb7vr4iDgoYIa57DBYAVVMzejkNKmLAodBezDeFMwkooiw==}
+  /@edifice.io/utilities@2.1.2:
+    resolution: {integrity: sha512-oSnfciN79KAIWDBymqeY/mo6naSalZrj1migQbOsi2qBKol4F48OhWJgohSM5hxPeLo+ASx5JhMPa9j7BMnEYA==}
     dev: false
 
   /@esbuild/aix-ppc64@0.21.5:

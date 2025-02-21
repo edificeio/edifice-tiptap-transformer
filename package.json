@@ -1,6 +1,6 @@
 {
   "name": "rich-content-transformer",
-  "version": "1.0.19-develop",
+  "version": "1.0.19",
   "description": "Uses TipTap library to transform HTML to JSON and back",
   "license": "ISC",
   "author": "OpenDigitalEducation",
@@ -21,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@edifice.io/tiptap-extensions": "develop",
+    "@edifice.io/tiptap-extensions": "2.1.2",
     "@tiptap/core": "2.11.0",
     "@tiptap/extension-color": "2.11.0",
     "@tiptap/extension-font-family": "2.11.0",
