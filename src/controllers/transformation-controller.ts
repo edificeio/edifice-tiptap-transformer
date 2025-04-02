@@ -26,6 +26,7 @@ import { Linker } from '@edifice.io/tiptap-extensions/linker';
 import { MathJax } from '@edifice.io/tiptap-extensions/mathjax';
 import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
 import { Video } from '@edifice.io/tiptap-extensions/video';
+import { InformationPane } from '@edifice.io/tiptap-extensions/information-pane';
 
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
@@ -89,6 +90,7 @@ const EXTENSIONS = [
   Image,
   Attachment,
   AttachmentTransformer,
+  InformationPane,
 ];
 
 export function transformController(
