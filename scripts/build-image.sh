@@ -10,7 +10,7 @@ PACKAGE_VERSION=$(cat package.json \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g')
 PACKAGE_VERSION=$(echo $PACKAGE_VERSION | sed -e 's/ //g')
-TAG="opendigitaleducation/content-transformer:$PACKAGE_VERSION"
+TAG="edifice-tiptap-transformer:$PACKAGE_VERSION"
 ARCHITECTURE="linux/arm/v7,linux/arm/v8,linux/arm64,linux/amd64"
-REPOSITORY="maven.opendigitaleducation.com/"
-docker buildx build --push -t "$TAG" . --platform "$ARCHITECTURE"
+REPOSITORY="maven.opendigitaleducation.com/docker/repository/sre-docker-hosted"
+docker buildx build --push -t "$REPOSITORY/$TAG" . --platform "$ARCHITECTURE"
