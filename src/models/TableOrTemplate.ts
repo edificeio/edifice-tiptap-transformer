@@ -1,4 +1,5 @@
-import Table from '@tiptap/extension-table';
+import { Table } from '@tiptap/extension-table';
+import { mergeAttributes } from '@tiptap/core';
 
 export default Table.extend({
   // transformer-only : parse old-format "templates" as tables
@@ -10,16 +11,19 @@ export default Table.extend({
     };
   },
   parseHTML() {
-    return this.parent?.()?.concat([
+    return [
+      // Table's default parseHTML
+      { tag: 'table' },
+      // transformer-only: parse old-format "templates" as tables
       {
         tag: 'div.row',
-        getAttrs: (el) => {
+        getAttrs: (el: HTMLElement | string) => {
           // Check if columns are present. If not, ignore the template attribute.
           if (!el || typeof el === 'string') return false;
           const columns = el.querySelectorAll('.column.cell');
           if (!columns || columns.length <= 0) return false;
           // Otherwise, determine columns width.
-          const template = [];
+          const template: string[] = [];
           for (let i = 0; i < columns.length; i++) {
             const column = columns[i];
             if (column.classList.contains('image-template')) {
@@ -46,21 +50,28 @@ export default Table.extend({
           };
         },
       },
-    ]);
+    ];
   },
-  renderHTML(props) {
-    //FIXME This code is too tightened to its parent's implementation
-    const output = this.parent?.(props) as unknown as Array<
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      string | Object | 0
-    >;
-    const columnsWidth: string[] | undefined | null =
-      props.HTMLAttributes['template'];
-    if (!columnsWidth || columnsWidth.length <= 0) return output;
-    const columns = columnsWidth.map((width) => ['col', { width: width }]);
+  renderHTML({ HTMLAttributes }: { HTMLAttributes: Record<string, unknown> }) {
+    const columnsWidth: string[] | undefined | null = HTMLAttributes[
+      'template'
+    ] as string[] | undefined | null;
+    const tableAttrs = mergeAttributes(
+      this.options.HTMLAttributes,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      HTMLAttributes as any,
+    );
+    if (!columnsWidth || columnsWidth.length <= 0) {
+      return ['table', tableAttrs, ['tbody', 0]];
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const columns: any[] = columnsWidth.map((width) => [
+      'col',
+      { width: width },
+    ]);
     return [
-      output[0],
-      output[1],
+      'table',
+      tableAttrs,
       ['colgroup', {}].concat(columns),
       ['tbody', 0],
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
