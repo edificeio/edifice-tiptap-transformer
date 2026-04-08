@@ -9,7 +9,7 @@ import {
 } from '../models/transformation-request.js';
 
 import { generateText } from '@tiptap/core';
-import { generateHTML, generateJSON } from '@tiptap/html';
+import { generateHTML, generateJSON } from '@tiptap/html/server';
 
 import {
   AttachmentTransformer,
@@ -33,16 +33,16 @@ import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
 import { Video } from '@edifice.io/tiptap-extensions/video';
 
 import { Color } from '@tiptap/extension-color';
-import FontFamily from '@tiptap/extension-font-family';
-import Subscript from '@tiptap/extension-subscript';
-import Superscript from '@tiptap/extension-superscript';
-import TableHeader from '@tiptap/extension-table-header';
-import TableRow from '@tiptap/extension-table-row';
-import TextAlign from '@tiptap/extension-text-align';
-import TextStyle from '@tiptap/extension-text-style';
-import Typography from '@tiptap/extension-typography';
-import Underline from '@tiptap/extension-underline';
-import StarterKit from '@tiptap/starter-kit';
+import { FontFamily } from '@tiptap/extension-font-family';
+import { Subscript } from '@tiptap/extension-subscript';
+import { Superscript } from '@tiptap/extension-superscript';
+import { TableHeader } from '@tiptap/extension-table-header';
+import { TableRow } from '@tiptap/extension-table-row';
+import { TextAlign } from '@tiptap/extension-text-align';
+import { TextStyle } from '@tiptap/extension-text-style';
+import { Typography } from '@tiptap/extension-typography';
+import { Underline } from '@tiptap/extension-underline';
+import { StarterKit } from '@tiptap/starter-kit';
 import {
   cleanHtmlCounter,
   cleanHtmlTimer,
@@ -75,7 +75,14 @@ const EXTENSIONS = [
   TableHeader,
   TableOrTemplateCell,
   TextAlign.configure({
-    types: ['heading', 'paragraph', 'custom-image', 'video', 'audio', 'iframe'],
+    types: [
+      'customHeading',
+      'paragraph',
+      'custom-image',
+      'video',
+      'audio',
+      'iframe',
+    ],
   }),
   CustomHeading.configure({
     levels: [1, 2],
