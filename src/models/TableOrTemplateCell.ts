@@ -19,8 +19,11 @@ export default TableCell
       try {
         return [
           {
-            tag: 'td[style]:not(:where(> p))',
+            // Simplified from 'td[style]:not(:where(> p))' — happy-dom doesn't support :where()
+            tag: 'td[style]',
             getAttrs: (node: HTMLElement) => {
+              // Skip if the td already has a direct <p> child (aligned content already nested)
+              if (node.querySelector(':scope > p')) return false;
               const textAlign = node.style.textAlign;
               if (
                 ['left', 'right', 'center', 'justify'].findIndex(

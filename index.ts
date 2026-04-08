@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express from "express";
-import "global-jsdom/register";
 import cluster from "cluster";
 import os from "os";
 import createServer from "./src/server.js";
