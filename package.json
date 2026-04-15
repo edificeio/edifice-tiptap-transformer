@@ -1,6 +1,6 @@
 {
   "name": "rich-content-transformer",
-  "version": "1.0.23-develop.0",
+  "version": "1.0.24-develop.0",
   "description": "Uses TipTap library to transform HTML to JSON and back",
   "license": "ISC",
   "author": "OpenDigitalEducation",
@@ -78,6 +78,11 @@
     "prettier": "3.2.4",
     "turbo": "1.11.3",
     "typescript": "5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "prosemirror-model": "<1.25.2"
+    }
   },
   "packageManager": "pnpm@8.6.6",
   "engines": {

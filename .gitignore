@@ -4,3 +4,4 @@ dist/
 .vscode
 .idea
 pnpm-lock.yaml
+.pnpm-store/
