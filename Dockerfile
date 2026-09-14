@@ -11,11 +11,13 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package*.json ./
 
-RUN pnpm i --prod --no-frozen-lockfile
+# devDeps are needed for the build below (tsc)
+RUN pnpm i --no-frozen-lockfile
 
 COPY . .
 
 RUN pnpm run build
+# pruned to prod-only before the final image copies node_modules
 RUN pnpm prune --production
 
 FROM gcr.io/distroless/nodejs18-debian11 AS production
