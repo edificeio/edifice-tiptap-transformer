@@ -34,5 +34,6 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 EXPOSE 3000
 
-USER node
+# gcr.io/distroless has no "node" user; 65532:65532 is the built-in nonroot user
+USER 65532:65532
 CMD [ "--es-module-specifier-resolution=node", "/usr/src/app/dist/index.js" ]
