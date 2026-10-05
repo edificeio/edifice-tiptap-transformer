@@ -1,0 +1,42 @@
+{
+  "sourceHtml": "<p>Voir l'article <a href=\"/blog/post/abcd-1234\" class=\"linker\" title=\"Mon article de blog\" data-id=\"abcd-1234\" data-app-prefix=\"blog\">Mon article de blog</a>.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Voir l'article "
+          },
+          {
+            "type": "linker",
+            "attrs": {
+              "href": "/blog/post/abcd-1234",
+              "class": "linker",
+              "target": null,
+              "title": "Mon article de blog",
+              "data-id": "abcd-1234",
+              "data-app-prefix": "blog"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Mon article de blog"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p>Voir l&apos;article <a title=\"Mon article de blog\" class=\"linker\" data-id=\"abcd-1234\" data-app-prefix=\"blog\" href=\"/blog/post/abcd-1234\">Mon article de blog</a>.</p>"
+}

@@ -1,0 +1,75 @@
+{
+  "sourceHtml": "<div class=\"row\">\n  <div class=\"column cell six\">Colonne gauche (ancien format template)</div>\n  <div class=\"column cell six\">Colonne droite (ancien format template)</div>\n</div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "table",
+        "attrs": {
+          "template": [
+            "50%",
+            "50%"
+          ]
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": null,
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne gauche (ancien format template)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": null,
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne droite (ancien format template)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<table template=\"50%,50%\" style=\"min-width: 50px\"><colgroup><col width=\"50%\"><col width=\"50%\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\"><p>Colonne gauche (ancien format template)</p></td><td colspan=\"1\" rowspan=\"1\"><p>Colonne droite (ancien format template)</p></td></tr></tbody></table>"
+}

@@ -1,0 +1,32 @@
+{
+  "sourceHtml": "<p><span style=\"line-height: 1.5;\">Texte avec interligne personnalisé</span></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": null,
+                  "fontSize": null,
+                  "lineHeight": "1.5",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "Texte avec interligne personnalisé"
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><span style=\"line-height: 1.5\">Texte avec interligne personnalisé</span></p>"
+}
