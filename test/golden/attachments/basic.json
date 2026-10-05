@@ -1,0 +1,30 @@
+{
+  "sourceHtml": "<div class=\"attachments\"><a href=\"/workspace/document/doc-789\" data-document-id=\"doc-789\" data-content-type=\"application/pdf\">fichier.pdf</a></div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "attachments",
+            "attrs": {
+              "links": [
+                {
+                  "href": "/workspace/document/doc-789",
+                  "name": "fichier.pdf",
+                  "dataDocumentId": "doc-789",
+                  "dataContentType": "application/pdf"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><div class=\"attachments\"><a name=\"fichier.pdf\" href=\"/workspace/document/doc-789\" data-document-id=\"doc-789\" data-content-type=\"application/pdf\">fichier.pdf</a></div></p>"
+}

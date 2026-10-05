@@ -1,0 +1,34 @@
+{
+  "sourceHtml": "<h1 style=\"text-align: center;\">Titre centré</h1>\n<p style=\"text-align: right;\">Paragraphe aligné à droite.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "center",
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Titre centré"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Paragraphe aligné à droite."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<h1 style=\"text-align: center\">Titre centré</h1><p style=\"text-align: right\">Paragraphe aligné à droite.</p>"
+}

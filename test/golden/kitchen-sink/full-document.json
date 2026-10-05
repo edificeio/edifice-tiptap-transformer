@@ -1,0 +1,360 @@
+{
+  "sourceHtml": "<h1 style=\"text-align: center;\">Document de test complet</h1>\n<p>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page<br>avec un <strong>mot en gras</strong> et un <em>mot en italique</em>.</p>\n<p>Visitez <a href=\"https://www.website.com\" target=\"_blank\">notre site</a> ou consultez l'article <a href=\"/blog/post/abcd-1234\" class=\"linker\" data-id=\"abcd-1234\" data-app-prefix=\"blog\">lié en interne</a>.</p>\n<ul>\n  <li>Premier élément</li>\n  <li>Deuxième élément</li>\n</ul>\n<div data-information-pane data-type=\"info\" class=\"information-pane information-pane-info\"><p>Point d'information.</p></div>\n<div class=\"warning\">Message d'alerte.</div>\n<p><img src=\"/workspace/document/img-1234\" alt=\"Illustration\" width=\"350\"></p>\n<div class=\"video-wrapper\"><video src=\"/workspace/document/video-1234\" controls data-document-id=\"video-1234\" width=\"640\" height=\"360\"></video></div>\n<table>\n  <tbody>\n    <tr><th>Colonne A</th><th>Colonne B</th></tr>\n    <tr><td>1</td><td style=\"background-color: #ffcc00;\">2</td></tr>\n  </tbody>\n</table>\n<p><mathjax>x^2+y^2=z^2</mathjax></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "center",
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Document de test complet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "avec un "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "mot en gras"
+          },
+          {
+            "type": "text",
+            "text": " et un "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              }
+            ],
+            "text": "mot en italique"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Visitez "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "hyperlink",
+                "attrs": {
+                  "href": "https://www.website.com",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer nofollow",
+                  "class": null
+                }
+              }
+            ],
+            "text": "notre site"
+          },
+          {
+            "type": "text",
+            "text": " ou consultez l'article "
+          },
+          {
+            "type": "linker",
+            "attrs": {
+              "href": "/blog/post/abcd-1234",
+              "class": "linker",
+              "target": null,
+              "title": null,
+              "data-id": "abcd-1234",
+              "data-app-prefix": "blog"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "lié en interne"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Premier élément"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Deuxième élément"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "information-pane",
+        "attrs": {
+          "type": "info"
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Point d'information."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "alert",
+        "attrs": {
+          "class": "warning"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Message d'alerte."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "custom-image",
+            "attrs": {
+              "textAlign": null,
+              "src": "/workspace/document/img-1234",
+              "alt": "Illustration",
+              "title": null,
+              "size": "medium",
+              "width": "350",
+              "height": null,
+              "style": null
+            }
+          }
+        ]
+      },
+      {
+        "type": "video",
+        "attrs": {
+          "textAlign": null,
+          "src": "/workspace/document/video-1234",
+          "controls": true,
+          "documentId": "video-1234",
+          "isCaptation": false,
+          "videoResolution": "404x720",
+          "width": "640",
+          "height": "360"
+        }
+      },
+      {
+        "type": "table",
+        "attrs": {
+          "template": null
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne A"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne B"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": null,
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": "#ffcc00",
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "customHighlight",
+                            "attrs": {
+                              "color": "#ffcc00"
+                            }
+                          }
+                        ],
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "mathjaxnode",
+            "attrs": {
+              "equation": "x^2+y^2=z^2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<h1 style=\"text-align: center\">Document de test complet</h1><p>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page<br>avec un <strong>mot en gras</strong> et un <em>mot en italique</em>.</p><p>Visitez <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.website.com\">notre site</a> ou consultez l&apos;article <a class=\"linker\" data-id=\"abcd-1234\" data-app-prefix=\"blog\" href=\"/blog/post/abcd-1234\">lié en interne</a>.</p><ul><li><p>Premier élément</p></li><li><p>Deuxième élément</p></li></ul><div data-type=\"info\" data-information-pane=\"\" class=\"information-pane information-pane-info\"><p>Point d&apos;information.</p></div><div class=\"warning\">Message d&apos;alerte.</div><p><img class=\"custom-image\" src=\"/workspace/document/img-1234\" alt=\"Illustration\" width=\"350\"></p><div class=\"video-wrapper\"><video src=\"/workspace/document/video-1234\" controls data-document-id=\"video-1234\" data-video-resolution=\"404x720\" width=\"640\" height=\"360\"></video></div><table style=\"min-width: 50px\"><colgroup><col style=\"min-width: 25px\"><col style=\"min-width: 25px\"></colgroup><tbody><tr><th colspan=\"1\" rowspan=\"1\"><p>Colonne A</p></th><th colspan=\"1\" rowspan=\"1\"><p>Colonne B</p></th></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>1</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: #ffcc00\"><p><mark data-color=\"#ffcc00\" style=\"background-color: #ffcc00; color: inherit\">2</mark></p></td></tr></tbody></table><p><span>$x^2+y^2=z^2$</span></p>"
+}

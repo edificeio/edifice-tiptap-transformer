@@ -1,0 +1,47 @@
+{
+  "sourceHtml": "<table>\n  <tbody>\n    <tr>\n      <td style=\"text-align:right\">Valeur alignée (ancien format td[style])</td>\n    </tr>\n  </tbody>\n</table>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "table",
+        "attrs": {
+          "template": null
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": null,
+                  "data-text-align": "right",
+                  "align": "right"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Valeur alignée (ancien format td[style])"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<table style=\"min-width: 25px\"><colgroup><col style=\"min-width: 25px\"></colgroup><tbody><tr><td colspan=\"1\" rowspan=\"1\" style=\"text-align: right\"><p style=\"text-align: right;\"><p>Valeur alignée (ancien format td[style])</p></p></td></tr></tbody></table>"
+}

@@ -1,0 +1,33 @@
+{
+  "sourceHtml": "<p class=\"info\">Information importante (ancien format p.info).</p>\n<div class=\"warning\">Attention (ancien format div.warning).</div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "alert",
+        "attrs": {
+          "class": "info"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Information importante (ancien format p.info)."
+          }
+        ]
+      },
+      {
+        "type": "alert",
+        "attrs": {
+          "class": "warning"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Attention (ancien format div.warning)."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<div class=\"info\">Information importante (ancien format p.info).</div><div class=\"warning\">Attention (ancien format div.warning).</div>"
+}
