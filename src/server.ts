@@ -4,15 +4,14 @@ import {
   transformController,
 } from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
+import { initLogger, logger } from './logger.js';
 
-export default function createServer() {
-  console.log(`msg="Launching instance of the transformer"`);
-
+export function buildApp(): Express {
   const app: Express = express();
-  const port = process.env.PORT || 3000;
   const serviceVersion = 1;
 
   initMetrics(app);
+  initLogger(app);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const expressOptions: any = {};
@@ -31,12 +30,10 @@ export default function createServer() {
       next: express.NextFunction,
     ) => {
       if (err.status === 413 || err.type === 'entity.too.large') {
-        console.warn(`msg="payload.too.large"`);
+        req.log.warn('payload.too.large');
         res.status(413).send('payload.too.large');
       } else {
-        console.warn(
-          `msg="unhandled.error" type="${err.type}" status="${err.status}" stack="${stringifyStackTrace(err.stack)}"`,
-        );
+        req.log.error({ err }, 'unhandled.error');
         res.status(500).json({ error: 'internal.server.error' });
       }
     },
@@ -53,16 +50,16 @@ export default function createServer() {
     healthCheck(res);
   });
 
-  app.listen(port, () => {
-    console.log(`msg="Example app listening on port ${port}"`);
-  });
+  return app;
 }
-function stringifyStackTrace(stack: string) {
-  let stringified;
-  if (stack) {
-    stringified = stack.replace(/"/g, '"').replace(/\n/g, '\\\\n');
-  } else {
-    stringified = '';
-  }
-  return stringified;
+
+export default function createServer() {
+  logger.info('Launching instance of the transformer');
+
+  const port = process.env.PORT || 3000;
+  const app = buildApp();
+
+  app.listen(port, () => {
+    logger.info({ port }, 'Example app listening');
+  });
 }

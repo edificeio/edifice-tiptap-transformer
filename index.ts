@@ -3,6 +3,7 @@ import express from "express";
 import cluster from "cluster";
 import os from "os";
 import createServer from "./src/server.js";
+import { logger } from "./src/logger.js";
 import { AggregatorRegistry } from "prom-client";
 import fs from 'fs';
 
@@ -20,13 +21,13 @@ const desiredInstances = process.env.NB_THREADS
 const metricsPort = process.env.METRICS_PORT || 3001;
 
 if (cluster.isPrimary && desiredInstances > 1) {
-  console.log(`msg="Launching ${desiredInstances} instances of the transformer"`);
+  logger.info({ desiredInstances }, "Launching instances of the transformer");
   // Fork workers for each CPU core
   for (let i = 0; i < desiredInstances; i++) {
     cluster.fork();
   }
   cluster.on("exit", (worker: any, code: number, signal: any) => {
-    console.log(`msg="Worker died" pid=${worker.process.pid}"`);
+    logger.error({ pid: worker.process.pid, code, signal }, "Worker died");
   });
 
   metricsServer.get("/metrics", async (req, res) => {
@@ -35,14 +36,15 @@ if (cluster.isPrimary && desiredInstances > 1) {
       res.set("Content-Type", aggregatorRegistry.contentType);
       res.send(metrics);
     } catch (e) {
-      console.error(e);
+      logger.error({ err: e }, "metrics.not.available");
       res.statusCode = 500;
       res.send("metrics.not.available");
     }
   });
   metricsServer.listen(metricsPort);
-  console.log(
-    `msg="Cluster metrics server listening to ${metricsPort}, metrics exposed on /metrics"`
+  logger.info(
+    { metricsPort },
+    "Cluster metrics server listening, metrics exposed on /metrics"
   );
 } else {
   createServer();
@@ -51,16 +53,16 @@ function createPidFile() {
   const path = process.env.PID_FILE;
   if(path) {
     if(fs.existsSync(path)) {
-      console.log(`msg="Deleting old pid file" path=${path}`)
+      logger.info({ path }, "Deleting old pid file");
       fs.unlinkSync(path);
     }
-    console.log(`msg="Writting pid file" path=${path}`)
+    logger.info({ path }, "Writing pid file");
     // Write PID file
     fs.writeFileSync(path, process.pid.toString(), { flag: 'w' });
 
     process.on('exit', () => {
       // Remove PID file on exit
-      console.log(`msg="Removing olf pid file after exit" path=${path}`)
+      logger.info({ path }, "Removing pid file after exit");
       fs.unlinkSync(path);
     });
   }
