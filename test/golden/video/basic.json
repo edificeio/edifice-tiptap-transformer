@@ -1,0 +1,22 @@
+{
+  "sourceHtml": "<div class=\"video-wrapper\"><video src=\"/workspace/document/video-1234\" controls data-document-id=\"video-1234\" data-document-is-captation=\"false\" data-video-resolution=\"720p\" width=\"640\" height=\"360\"></video></div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "video",
+        "attrs": {
+          "textAlign": null,
+          "src": "/workspace/document/video-1234",
+          "controls": true,
+          "documentId": "video-1234",
+          "isCaptation": "false",
+          "videoResolution": "720p",
+          "width": "640",
+          "height": "360"
+        }
+      }
+    ]
+  },
+  "htmlFromJson": "<div class=\"video-wrapper\"><video src=\"/workspace/document/video-1234\" controls data-document-id=\"video-1234\" data-document-is-captation=\"false\" data-video-resolution=\"720p\" width=\"640\" height=\"360\"></video></div>"
+}

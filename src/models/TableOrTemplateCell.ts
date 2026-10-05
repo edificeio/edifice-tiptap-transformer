@@ -1,5 +1,5 @@
 import { TableCell } from '@edifice.io/tiptap-extensions/table-cell';
-import { mergeAttributes } from '@tiptap/core';
+import { getStyleProperty, mergeAttributes } from '@tiptap/core';
 
 export default TableCell
   /* transformer-only : WB-2568, preserve text-align attributes found on <td> in old-format documents.
@@ -12,6 +12,18 @@ export default TableCell
     addAttributes() {
       return {
         ...this.parent?.(),
+        // The package's own `backgroundColor` falls back to `element.style.backgroundColor`,
+        // which happy-dom (v3) resolves to "" (not undefined) for an unset property, turning
+        // its `default: null` into "" for every cell that has no background color set.
+        backgroundColor: {
+          default: null,
+          parseHTML: (element: HTMLElement) =>
+            getStyleProperty(element, 'background-color'),
+          renderHTML: (attributes: { backgroundColor?: string }) =>
+            !attributes.backgroundColor
+              ? {}
+              : { style: `background-color: ${attributes.backgroundColor}` },
+        },
         'data-text-align': { default: null },
       };
     },
@@ -39,8 +51,8 @@ export default TableCell
             //consuming: false,
             //skip: true,
           },
-          //@ts-ignore see catch below, which is never used anyway.
-          ...this.parent(),
+          // Non-null: the catch below handles the (never actually hit) case where it isn't.
+          ...(this.parent!() ?? []),
         ];
       } catch {
         return this.parent?.();

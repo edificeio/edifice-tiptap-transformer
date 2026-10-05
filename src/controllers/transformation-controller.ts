@@ -2,6 +2,7 @@ import { Response } from 'express';
 import { TransformationFormat } from '../models/format.js';
 import TableOrTemplate from '../models/TableOrTemplate.js';
 import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
+import { parseStyleProperty, styleObjectToCss } from '../models/StyleCompat.js';
 import {
   AuthenticatedRequest,
   ContentTransformerRequest,
@@ -10,6 +11,7 @@ import {
 
 import { generateText } from '@tiptap/core';
 import { generateHTML, generateJSON } from '@tiptap/html/server';
+import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 
 import {
   AttachmentTransformer,
@@ -59,15 +61,46 @@ import {
   updateCounterAndTimer,
 } from './metrics-controller.js';
 
-const EXTENSIONS = [
-  StarterKit.configure({ paragraph: false }),
+export const EXTENSIONS = [
+  // v3's StarterKit now bundles `heading`, `underline` and `link` by default (none of
+  // which it did in v2), silently duplicating/shadowing the custom Paragraph/Heading/
+  // Underline/Hyperlink below. Disabled to keep the exact same schema/parsing as v2.
+  StarterKit.configure({
+    paragraph: false,
+    heading: false,
+    underline: false,
+    link: false,
+  }),
   Paragraph,
   CustomHighlight.configure({
     multicolor: true,
   }),
   Underline,
   TextStyle,
-  Color,
+  // Color/FontFamily/FontSize/LineHeight all fall back to `element.style.<prop>` when
+  // nothing is found, which happy-dom (v3) resolves to "" instead of undefined for an
+  // unset CSS property — turning every *other* textStyle attribute's `null` default into
+  // "" as soon as a span has any style at all. Re-declaring parseHTML with the safe
+  // getStyleProperty()-only helper (src/models/StyleCompat.ts) fixes this.
+  Color.extend({
+    addGlobalAttributes() {
+      return [
+        {
+          types: ['textStyle'],
+          attributes: {
+            color: {
+              default: null,
+              parseHTML: parseStyleProperty('color'),
+              renderHTML: (attributes: { color?: string }) =>
+                !attributes.color
+                  ? {}
+                  : { style: `color: ${attributes.color}` },
+            },
+          },
+        },
+      ];
+    },
+  }),
   Subscript,
   Superscript,
   TableOrTemplate,
@@ -75,30 +108,102 @@ const EXTENSIONS = [
   TableHeader,
   TableOrTemplateCell,
   TextAlign.configure({
-    types: [
-      'customHeading',
-      'paragraph',
-      'custom-image',
-      'video',
-      'audio',
-      'iframe',
-    ],
+    types: ['heading', 'paragraph', 'custom-image', 'video', 'audio', 'iframe'],
   }),
-  CustomHeading.configure({
+  // The published package renamed this node's internal name to 'customHeading' (to dodge
+  // v3 StarterKit's now-bundled 'heading' — see above), which would otherwise change the
+  // JSON schema and break every already-stored document containing a heading. Pinning the
+  // name back to 'heading' keeps the exact same schema as v2, with zero migration needed.
+  CustomHeading.extend({ name: 'heading' }).configure({
     levels: [1, 2],
   }),
   Typography,
-  FontSize,
-  LineHeight,
+  // Same "" vs null fallback bug as Color above — see StyleCompat.ts.
+  FontSize.extend({
+    addGlobalAttributes() {
+      return [
+        {
+          types: ['textStyle'],
+          attributes: {
+            fontSize: {
+              default: null,
+              parseHTML: parseStyleProperty('font-size'),
+              renderHTML: (attributes: { fontSize?: string }) =>
+                !attributes.fontSize
+                  ? {}
+                  : { style: `font-size: ${attributes.fontSize}` },
+            },
+          },
+        },
+      ];
+    },
+  }),
+  LineHeight.extend({
+    addGlobalAttributes() {
+      return [
+        {
+          types: ['textStyle'],
+          attributes: {
+            lineHeight: {
+              default: null,
+              parseHTML: parseStyleProperty('line-height'),
+              renderHTML: (attributes: { lineHeight?: string }) =>
+                !attributes.lineHeight
+                  ? {}
+                  : { style: `line-height: ${attributes.lineHeight}` },
+            },
+          },
+        },
+      ];
+    },
+  }),
   Iframe,
   Hyperlink,
-  FontFamily,
+  // Same "" vs null fallback bug as Color above — see StyleCompat.ts.
+  FontFamily.extend({
+    addGlobalAttributes() {
+      return [
+        {
+          types: ['textStyle'],
+          attributes: {
+            fontFamily: {
+              default: null,
+              parseHTML: parseStyleProperty('font-family'),
+              renderHTML: (attributes: { fontFamily?: string }) =>
+                !attributes.fontFamily
+                  ? {}
+                  : { style: `font-family: ${attributes.fontFamily}` },
+            },
+          },
+        },
+      ];
+    },
+  }),
   MathJax,
   Alert,
   Video,
   Audio,
   Linker,
-  Image,
+  // The legacy "smiley" image detection sets `attrs.style` to a plain object (not a CSS
+  // string), which only zeed-dom (v2) stringified on its own — see StyleCompat.ts.
+  Image.extend({
+    renderHTML(props: {
+      node: ProseMirrorNode;
+      HTMLAttributes: Record<string, unknown>;
+    }) {
+      const HTMLAttributes = {
+        ...props.HTMLAttributes,
+        style: styleObjectToCss(
+          props.HTMLAttributes.style as
+            | string
+            | Record<string, string>
+            | undefined,
+        ),
+      };
+      // Non-null: this node always has a parent renderHTML to delegate to.
+      return this.parent!({ ...props, HTMLAttributes });
+    },
+  }),
   Attachment,
   AttachmentTransformer,
   InformationPane,

@@ -1,0 +1,17 @@
+{
+  "sourceHtml": "<div class=\"audio-wrapper\"><audio src=\"/workspace/document/audio-1234\" controls data-document-id=\"audio-1234\"></audio></div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "audio",
+        "attrs": {
+          "textAlign": null,
+          "src": "/workspace/document/audio-1234",
+          "documentId": "audio-1234"
+        }
+      }
+    ]
+  },
+  "htmlFromJson": "<div class=\"audio-wrapper\"><audio src=\"/workspace/document/audio-1234\" data-document-id=\"audio-1234\"></audio></div>"
+}

@@ -13,6 +13,23 @@ services:
     ports:
       - "3000:3000"
       - "3001:3001"
+  tests:
+    build:
+      context: ./
+      target: test
+    command: pnpm test
+  integration-tests:
+    build:
+      context: ./
+      target: test
+    # content-transformer's production image is distroless (no shell), so it can't
+    # expose a Docker-native HEALTHCHECK. Wait for it from here instead, where a
+    # shell/Node runtime is available.
+    command: >
+      sh -c "pnpm exec tsx scripts/wait-for-http.ts http://content-transformer:3000/healthcheck 60000
+      && TRANSFORMER_URL=http://content-transformer:3000/transform pnpm run test:smoke"
+    depends_on:
+      - content-transformer
   load-tester:
     image: grafana/k6:master
     volumes:

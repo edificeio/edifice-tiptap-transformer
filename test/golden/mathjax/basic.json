@@ -1,0 +1,23 @@
+{
+  "sourceHtml": "<p><mathjax>x^2+y^2=z^2</mathjax></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "mathjaxnode",
+            "attrs": {
+              "equation": "x^2+y^2=z^2"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><span>$x^2+y^2=z^2$</span></p>"
+}
