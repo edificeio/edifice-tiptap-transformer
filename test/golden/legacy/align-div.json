@@ -1,0 +1,32 @@
+{
+  "sourceHtml": "<div style=\"text-align:right\"><span style=\"font-size: 20pt;\">Texte historique aligné à droite</span></div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right"
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": null,
+                  "fontSize": "20pt",
+                  "lineHeight": null,
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "Texte historique aligné à droite"
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p style=\"text-align: right\"><span style=\"font-size: 20pt\">Texte historique aligné à droite</span></p>"
+}

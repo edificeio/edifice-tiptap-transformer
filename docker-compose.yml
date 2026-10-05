@@ -13,6 +13,12 @@ services:
     ports:
       - "3000:3000"
       - "3001:3001"
+  node:
+    image: opendigitaleducation/node:24-alpine-pnpm
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+      - ~/.pnpm:/.pnpm
   load-tester:
     image: grafana/k6:master
     volumes:

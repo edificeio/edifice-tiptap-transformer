@@ -1,0 +1,21 @@
+{
+  "sourceHtml": "<div class=\"iframe-wrapper\"><iframe src=\"https://example.com/embed/abcd\" width=\"560\" height=\"315\" frameborder=\"0\" allowfullscreen></iframe></div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "iframe",
+        "attrs": {
+          "textAlign": null,
+          "src": "https://example.com/embed/abcd",
+          "frameborder": 0,
+          "allowfullscreen": true,
+          "width": "560",
+          "height": "315",
+          "style": null
+        }
+      }
+    ]
+  },
+  "htmlFromJson": "<div class=\"iframe-wrapper\"><iframe src=\"https://example.com/embed/abcd\" frameborder=\"0\" allowfullscreen width=\"560\" height=\"315\"></iframe></div>"
+}

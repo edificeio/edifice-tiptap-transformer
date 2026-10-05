@@ -5,11 +5,8 @@ import {
 } from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
 
-export default function createServer() {
-  console.log(`msg="Launching instance of the transformer"`);
-
+export function buildApp(): Express {
   const app: Express = express();
-  const port = process.env.PORT || 3000;
   const serviceVersion = 1;
 
   initMetrics(app);
@@ -52,6 +49,15 @@ export default function createServer() {
   app.get('/healthcheck', (req: Request, res: Response) => {
     healthCheck(res);
   });
+
+  return app;
+}
+
+export default function createServer() {
+  console.log(`msg="Launching instance of the transformer"`);
+
+  const port = process.env.PORT || 3000;
+  const app = buildApp();
 
   app.listen(port, () => {
     console.log(`msg="Example app listening on port ${port}"`);

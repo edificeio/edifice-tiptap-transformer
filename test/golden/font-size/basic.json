@@ -1,0 +1,32 @@
+{
+  "sourceHtml": "<p><span style=\"font-size: 18pt;\">Texte agrandi</span></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": null,
+                  "fontSize": "18pt",
+                  "lineHeight": null,
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "Texte agrandi"
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><span style=\"font-size: 18pt\">Texte agrandi</span></p>"
+}

@@ -1,0 +1,29 @@
+{
+  "sourceHtml": "<p><mark style=\"background-color: #ffff00;\">Texte surligné</mark></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "customHighlight",
+                "attrs": {
+                  "color": "#ffff00"
+                }
+              }
+            ],
+            "text": "Texte surligné"
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><mark data-color=\"#ffff00\" style=\"background-color: #ffff00; color: inherit\">Texte surligné</mark></p>"
+}
