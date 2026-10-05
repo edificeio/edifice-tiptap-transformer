@@ -1,0 +1,41 @@
+{
+  "sourceHtml": "<p>Visitez notre <a href=\"https://www.website.com\" target=\"_blank\" title=\"Notre site\">site web</a> pour en savoir plus.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Visitez notre "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "hyperlink",
+                "attrs": {
+                  "href": "https://www.website.com",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer nofollow",
+                  "class": null,
+                  "title": "Notre site"
+                }
+              }
+            ],
+            "text": "site web"
+          },
+          {
+            "type": "text",
+            "text": " pour en savoir plus."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p>Visitez notre <a target=\"_blank\" rel=\"noopener noreferrer nofollow\" href=\"https://www.website.com\" title=\"Notre site\">site web</a> pour en savoir plus.</p>"
+}

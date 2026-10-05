@@ -15,6 +15,7 @@
     - [Build](#build)
     - [Local run](#local-run)
   - [Call samples](#call-samples)
+  - [Non-regression tests](#non-regression-tests)
   - [Load testing](#load-testing)
   - [Description](#description)
   - [Execution](#execution)
@@ -134,6 +135,16 @@ Healthcheck :
 
 ```shell
 curl -L -X GET 'http://localhost:3000/healthcheck'
+```
+
+## Non-regression tests
+
+See [test/README.md](./test/README.md) for the test plan (unit, integration, smoke and Docker/CI
+layers), the golden-fixture strategy, and how to run or extend the suite. Quick start:
+
+```shell
+pnpm test        # unit + integration, no Docker/network needed
+pnpm test:ci     # what Jenkins runs: dockerized tests + full container end-to-end test
 ```
 
 ## Load testing

@@ -1,0 +1,131 @@
+{
+  "sourceHtml": "<table>\n  <tbody>\n    <tr>\n      <th>Colonne A</th>\n      <th>Colonne B</th>\n    </tr>\n    <tr>\n      <td>Valeur 1</td>\n      <td style=\"background-color: #ffcc00;\">Valeur 2</td>\n    </tr>\n  </tbody>\n</table>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "table",
+        "attrs": {
+          "template": null
+        },
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne A"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Colonne B"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": null,
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Valeur 1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null,
+                  "backgroundColor": "#ffcc00",
+                  "data-text-align": null,
+                  "align": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "customHighlight",
+                            "attrs": {
+                              "color": "#ffcc00"
+                            }
+                          }
+                        ],
+                        "text": "Valeur 2"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<table style=\"min-width: 50px\"><colgroup><col style=\"min-width: 25px\"><col style=\"min-width: 25px\"></colgroup><tbody><tr><th colspan=\"1\" rowspan=\"1\"><p>Colonne A</p></th><th colspan=\"1\" rowspan=\"1\"><p>Colonne B</p></th></tr><tr><td colspan=\"1\" rowspan=\"1\"><p>Valeur 1</p></td><td colspan=\"1\" rowspan=\"1\" style=\"background-color: #ffcc00\"><p><mark data-color=\"#ffcc00\" style=\"background-color: #ffcc00; color: inherit\">Valeur 2</mark></p></td></tr></tbody></table>"
+}

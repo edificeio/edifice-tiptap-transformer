@@ -1,0 +1,275 @@
+{
+  "sourceHtml": "<h1>Titre niveau 1</h1>\n<h2>Titre niveau 2</h2>\n<p>Un paragraphe avec du <strong>gras</strong>, de l'<em>italique</em>, du <u>souligné</u>, du <s>barré</s> et un saut de ligne<br>ici.</p>\n<p>Formule avec exposant x<sup>2</sup> et indice H<sub>2</sub>O.</p>\n<ul>\n  <li>Item liste à puces 1</li>\n  <li>Item liste à puces 2</li>\n</ul>\n<ol>\n  <li>Item liste numérotée 1</li>\n  <li>Item liste numérotée 2</li>\n</ol>\n<blockquote>Une citation.</blockquote>\n<hr>\n<p><code>code inline</code></p>\n<pre><code>bloc de code</code></pre>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Titre niveau 1"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Titre niveau 2"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Un paragraphe avec du "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "gras"
+          },
+          {
+            "type": "text",
+            "text": ", de l'"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              }
+            ],
+            "text": "italique"
+          },
+          {
+            "type": "text",
+            "text": ", du "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "underline"
+              }
+            ],
+            "text": "souligné"
+          },
+          {
+            "type": "text",
+            "text": ", du "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "strike"
+              }
+            ],
+            "text": "barré"
+          },
+          {
+            "type": "text",
+            "text": " et un saut de ligne"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "ici."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Formule avec exposant x"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "superscript"
+              }
+            ],
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": " et indice H"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "subscript"
+              }
+            ],
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": "O."
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Item liste à puces 1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Item liste à puces 2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Item liste numérotée 1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Item liste numérotée 2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "blockquote",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Une citation."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "code inline"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "bloc de code"
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<h1>Titre niveau 1</h1><h2>Titre niveau 2</h2><p>Un paragraphe avec du <strong>gras</strong>, de l&apos;<em>italique</em>, du <u>souligné</u>, du <s>barré</s> et un saut de ligne<br>ici.</p><p>Formule avec exposant x<sup>2</sup> et indice H<sub>2</sub>O.</p><ul><li><p>Item liste à puces 1</p></li><li><p>Item liste à puces 2</p></li></ul><ol><li><p>Item liste numérotée 1</p></li><li><p>Item liste numérotée 2</p></li></ol><blockquote><p>Une citation.</p></blockquote><hr><p><code>code inline</code></p><pre><code>bloc de code</code></pre>"
+}

@@ -1,0 +1,21 @@
+{
+  "sourceHtml": "<div class=\"warning\">Attention, message important.</div>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "alert",
+        "attrs": {
+          "class": "warning"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Attention, message important."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<div class=\"warning\">Attention, message important.</div>"
+}

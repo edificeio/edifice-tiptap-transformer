@@ -1,5 +1,11 @@
 import { Response } from 'express';
 import { TransformationFormat } from '../models/format.js';
+import Color from '../models/Color.js';
+import FontFamily from '../models/FontFamily.js';
+import FontSize from '../models/FontSize.js';
+import Heading from '../models/Heading.js';
+import Image from '../models/Image.js';
+import LineHeight from '../models/LineHeight.js';
 import TableOrTemplate from '../models/TableOrTemplate.js';
 import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
 import {
@@ -19,21 +25,15 @@ import { Alert } from '@edifice.io/tiptap-extensions/alert';
 import { Attachment } from '@edifice.io/tiptap-extensions/attachment';
 import { Audio } from '@edifice.io/tiptap-extensions/audio';
 import { ConversationHistory } from '@edifice.io/tiptap-extensions/conversation-history';
-import { FontSize } from '@edifice.io/tiptap-extensions/font-size';
-import { CustomHeading } from '@edifice.io/tiptap-extensions/heading';
 import { CustomHighlight } from '@edifice.io/tiptap-extensions/highlight';
 import { Hyperlink } from '@edifice.io/tiptap-extensions/hyperlink';
 import { Iframe } from '@edifice.io/tiptap-extensions/iframe';
-import { Image } from '@edifice.io/tiptap-extensions/image';
 import { InformationPane } from '@edifice.io/tiptap-extensions/information-pane';
-import { LineHeight } from '@edifice.io/tiptap-extensions/line-height';
 import { Linker } from '@edifice.io/tiptap-extensions/linker';
 import { MathJax } from '@edifice.io/tiptap-extensions/mathjax';
 import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
 import { Video } from '@edifice.io/tiptap-extensions/video';
 
-import { Color } from '@tiptap/extension-color';
-import { FontFamily } from '@tiptap/extension-font-family';
 import { Subscript } from '@tiptap/extension-subscript';
 import { Superscript } from '@tiptap/extension-superscript';
 import { TableHeader } from '@tiptap/extension-table-header';
@@ -59,8 +59,15 @@ import {
   updateCounterAndTimer,
 } from './metrics-controller.js';
 
-const EXTENSIONS = [
-  StarterKit.configure({ paragraph: false }),
+export const EXTENSIONS = [
+  // v3's StarterKit bundles heading/underline/link by default (v2's didn't), which
+  // would shadow our custom Paragraph/Heading/Underline/Hyperlink below. Disabled.
+  StarterKit.configure({
+    paragraph: false,
+    heading: false,
+    underline: false,
+    link: false,
+  }),
   Paragraph,
   CustomHighlight.configure({
     multicolor: true,
@@ -75,16 +82,9 @@ const EXTENSIONS = [
   TableHeader,
   TableOrTemplateCell,
   TextAlign.configure({
-    types: [
-      'customHeading',
-      'paragraph',
-      'custom-image',
-      'video',
-      'audio',
-      'iframe',
-    ],
+    types: ['heading', 'paragraph', 'custom-image', 'video', 'audio', 'iframe'],
   }),
-  CustomHeading.configure({
+  Heading.configure({
     levels: [1, 2],
   }),
   Typography,

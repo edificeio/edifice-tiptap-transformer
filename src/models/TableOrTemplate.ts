@@ -1,5 +1,6 @@
 import { Table } from '@tiptap/extension-table';
-import { mergeAttributes } from '@tiptap/core';
+import type { DOMOutputSpecArray } from '@tiptap/core';
+import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 
 export default Table.extend({
   // transformer-only : parse old-format "templates" as tables
@@ -52,29 +53,33 @@ export default Table.extend({
       },
     ];
   },
-  renderHTML({ HTMLAttributes }: { HTMLAttributes: Record<string, unknown> }) {
-    const columnsWidth: string[] | undefined | null = HTMLAttributes[
-      'template'
-    ] as string[] | undefined | null;
-    const tableAttrs = mergeAttributes(
-      this.options.HTMLAttributes,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      HTMLAttributes as any,
-    );
+  renderHTML(props: {
+    node: ProseMirrorNode;
+    HTMLAttributes: Record<string, unknown>;
+  }) {
+    const { HTMLAttributes } = props;
+    const columnsWidth = HTMLAttributes['template'] as
+      | string[]
+      | undefined
+      | null;
     if (!columnsWidth || columnsWidth.length <= 0) {
-      return ['table', tableAttrs, ['tbody', 0]];
+      // Not a legacy "template": delegate to Table's renderHTML, which computes the
+      // colgroup/min-width styling from the node's cells (the v3 port used to skip
+      // this call and lost that styling).
+      return this.parent!(props);
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const columns: any[] = columnsWidth.map((width) => [
+    // Legacy "template": same delegation, then swap Table's colgroup for ours.
+    // Table's own output is always ['table', attrs, colgroup, ['tbody', 0]].
+    const [tag, attrs, , tbody] = this.parent!(props) as [
+      string,
+      Record<string, unknown>,
+      unknown,
+      DOMOutputSpecArray,
+    ];
+    const columns: DOMOutputSpecArray[] = columnsWidth.map((width) => [
       'col',
-      { width: width },
+      { width },
     ]);
-    return [
-      'table',
-      tableAttrs,
-      ['colgroup', {}].concat(columns),
-      ['tbody', 0],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ] as any;
+    return [tag, attrs, ['colgroup', {}, ...columns], tbody] as const;
   },
 });
