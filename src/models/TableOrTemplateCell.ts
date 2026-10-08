@@ -1,17 +1,23 @@
 import { TableCell } from '@edifice.io/tiptap-extensions/table-cell';
-import { mergeAttributes } from '@tiptap/core';
+import { getStyleProperty, mergeAttributes } from '@tiptap/core';
 
 export default TableCell
-  /* transformer-only : WB-2568, preserve text-align attributes found on <td> in old-format documents.
-   *
-   * This extension moves the `style="text-align:XXX;"` attribute from the <td> to a nested <p> inside the <td>.
-   * Known issue : when an <td> has no child except a text-node, the text-node will be wrapped in another <p>
-   * and the final result will be `<td><p style="text-align:XXX;"><p>text node</p></p></td>`
-   */
+  // WB-2568: old-format documents store text-align as style="text-align:XXX" on the <td>
+  // itself; move it into a nested <p> instead, matching what the editor produces today.
   .extend({
     addAttributes() {
       return {
         ...this.parent?.(),
+        // Same v3 "" vs null bug as Color/FontSize/etc — see StyleCompat.ts.
+        backgroundColor: {
+          default: null,
+          parseHTML: (element: HTMLElement) =>
+            getStyleProperty(element, 'background-color'),
+          renderHTML: (attributes: { backgroundColor?: string }) =>
+            !attributes.backgroundColor
+              ? {}
+              : { style: `background-color: ${attributes.backgroundColor}` },
+        },
         'data-text-align': { default: null },
       };
     },
@@ -19,8 +25,11 @@ export default TableCell
       try {
         return [
           {
-            tag: 'td[style]:not(:where(> p))',
+            // Simplified from 'td[style]:not(:where(> p))': happy-dom doesn't support :where()
+            tag: 'td[style]',
             getAttrs: (node: HTMLElement) => {
+              // Skip if the td already has a direct <p> child (aligned content already nested)
+              if (node.querySelector(':scope > p')) return false;
               const textAlign = node.style.textAlign;
               if (
                 ['left', 'right', 'center', 'justify'].findIndex(
@@ -36,8 +45,8 @@ export default TableCell
             //consuming: false,
             //skip: true,
           },
-          //@ts-ignore see catch below, which is never used anyway.
-          ...this.parent(),
+          // Non-null: the catch below handles the (never actually hit) case where it isn't.
+          ...(this.parent!() ?? []),
         ];
       } catch {
         return this.parent?.();
@@ -70,9 +79,7 @@ export default TableCell
       });
     },
   })
-  /*
-   * transformer-only : parse old-format "cell column" as cells
-   */
+  // Also parse old-format "cell column" divs as cells
   .extend({
     parseHTML() {
       return this.parent?.()?.concat([{ tag: '.cell.column' }]);

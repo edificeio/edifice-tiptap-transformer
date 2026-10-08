@@ -1,0 +1,30 @@
+{
+  "sourceHtml": "<p><img src=\"/workspace/document/img-1234\" alt=\"Description de l'image\" title=\"Titre de l'image\" width=\"350\" height=\"200\" style=\"float: left;\"></p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "custom-image",
+            "attrs": {
+              "textAlign": null,
+              "src": "/workspace/document/img-1234",
+              "alt": "Description de l'image",
+              "title": "Titre de l'image",
+              "size": "medium",
+              "width": "350",
+              "height": "200",
+              "style": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p><img class=\"custom-image\" src=\"/workspace/document/img-1234\" alt=\"Description de l&apos;image\" title=\"Titre de l&apos;image\" width=\"350\" height=\"200\"></p>"
+}

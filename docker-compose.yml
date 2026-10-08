@@ -13,6 +13,14 @@ services:
     ports:
       - "3000:3000"
       - "3001:3001"
+  # Generic CI image (no app Dockerfile involved) for running pnpm scripts against the
+  # source, bind-mounted below — same pattern used across other Edifice Node repos.
+  node:
+    image: opendigitaleducation/node:18-alpine-pnpm
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+      - ~/.pnpm:/.pnpm
   load-tester:
     image: grafana/k6:master
     volumes:
