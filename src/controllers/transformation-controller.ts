@@ -27,6 +27,8 @@ import { Alert } from '@edifice.io/tiptap-extensions/alert';
 import { Attachment } from '@edifice.io/tiptap-extensions/attachment';
 import { Audio } from '@edifice.io/tiptap-extensions/audio';
 import { ConversationHistory } from '@edifice.io/tiptap-extensions/conversation-history';
+import { H5P } from '@edifice.io/tiptap-extensions/h5p';
+import { CustomHeading } from '@edifice.io/tiptap-extensions/heading';
 import { CustomHighlight } from '@edifice.io/tiptap-extensions/highlight';
 import { Hyperlink } from '@edifice.io/tiptap-extensions/hyperlink';
 import { Iframe } from '@edifice.io/tiptap-extensions/iframe';
@@ -115,6 +117,9 @@ export const EXTENSIONS = [
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ADDITIONAL_EXTENSIONS = new Map<string, any[] | any>([
   ['conversation-history', [ConversationHistory, ConversationHistoryBody]],
+  // H5P activities (edifice-h5p): opt-in, so that applications which do not embed H5P
+  // (e.g. the messaging app) keep dropping the block. Only the activity id is kept.
+  ['h5p', H5P],
 ]);
 
 /**
