@@ -1,4 +1,6 @@
-import Table from '@tiptap/extension-table';
+import { Table } from '@tiptap/extension-table';
+import type { DOMOutputSpecArray } from '@tiptap/core';
+import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 
 export default Table.extend({
   // transformer-only : parse old-format "templates" as tables
@@ -10,16 +12,19 @@ export default Table.extend({
     };
   },
   parseHTML() {
-    return this.parent?.()?.concat([
+    return [
+      // Table's default parseHTML
+      { tag: 'table' },
+      // transformer-only: parse old-format "templates" as tables
       {
         tag: 'div.row',
-        getAttrs: (el) => {
+        getAttrs: (el: HTMLElement | string) => {
           // Check if columns are present. If not, ignore the template attribute.
           if (!el || typeof el === 'string') return false;
           const columns = el.querySelectorAll('.column.cell');
           if (!columns || columns.length <= 0) return false;
           // Otherwise, determine columns width.
-          const template = [];
+          const template: string[] = [];
           for (let i = 0; i < columns.length; i++) {
             const column = columns[i];
             if (column.classList.contains('image-template')) {
@@ -46,24 +51,35 @@ export default Table.extend({
           };
         },
       },
-    ]);
+    ];
   },
-  renderHTML(props) {
-    //FIXME This code is too tightened to its parent's implementation
-    const output = this.parent?.(props) as unknown as Array<
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      string | Object | 0
-    >;
-    const columnsWidth: string[] | undefined | null =
-      props.HTMLAttributes['template'];
-    if (!columnsWidth || columnsWidth.length <= 0) return output;
-    const columns = columnsWidth.map((width) => ['col', { width: width }]);
-    return [
-      output[0],
-      output[1],
-      ['colgroup', {}].concat(columns),
-      ['tbody', 0],
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ] as any;
+  renderHTML(props: {
+    node: ProseMirrorNode;
+    HTMLAttributes: Record<string, unknown>;
+  }) {
+    const { HTMLAttributes } = props;
+    const columnsWidth = HTMLAttributes['template'] as
+      | string[]
+      | undefined
+      | null;
+    if (!columnsWidth || columnsWidth.length <= 0) {
+      // Not a legacy "template": delegate to Table's renderHTML, which computes the
+      // colgroup/min-width styling from the node's cells (the v3 port used to skip
+      // this call and lost that styling).
+      return this.parent!(props);
+    }
+    // Legacy "template": same delegation, then swap Table's colgroup for ours.
+    // Table's own output is always ['table', attrs, colgroup, ['tbody', 0]].
+    const [tag, attrs, , tbody] = this.parent!(props) as [
+      string,
+      Record<string, unknown>,
+      unknown,
+      DOMOutputSpecArray,
+    ];
+    const columns: DOMOutputSpecArray[] = columnsWidth.map((width) => [
+      'col',
+      { width },
+    ]);
+    return [tag, attrs, ['colgroup', {}, ...columns], tbody] as const;
   },
 });

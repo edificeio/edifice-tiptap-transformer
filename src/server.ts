@@ -1,21 +1,12 @@
 import express, { Express, Request, Response } from 'express';
-import 'global-jsdom/register';
 import {
   healthCheck,
   transformController,
 } from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
 
-// @ts-ignore
-global.CSS = {
-  // @ts-ignore
-  escape: (elt) => elt, // @ts-ignore
-};
-export default function createServer() {
-  console.log(`msg="Launching instance of the transformer"`);
-
+export function buildApp(): Express {
   const app: Express = express();
-  const port = process.env.PORT || 3000;
   const serviceVersion = 1;
 
   initMetrics(app);
@@ -58,6 +49,15 @@ export default function createServer() {
   app.get('/healthcheck', (req: Request, res: Response) => {
     healthCheck(res);
   });
+
+  return app;
+}
+
+export default function createServer() {
+  console.log(`msg="Launching instance of the transformer"`);
+
+  const port = process.env.PORT || 3000;
+  const app = buildApp();
 
   app.listen(port, () => {
     console.log(`msg="Example app listening on port ${port}"`);

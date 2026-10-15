@@ -25,7 +25,7 @@
     // "moduleDetection": "auto",                        /* Control what method is used to detect module-format JS files. */
 
     /* Modules */
-    //"module": "commonjs",                                /* Specify what module code is generated. */
+    "module": "ES2022" /* Specify what module code is generated. */,
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "moduleResolution": "bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
@@ -106,4 +106,10 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
   },
+  // Scoped to the actual application code so `pnpm build` behaves the same
+  // whether or not test/ is present in the build context (it's excluded from
+  // the production Docker build via .dockerignore, but included for the
+  // "test" Docker stage — see docker-compose.yml's `tests` / `integration-tests`).
+  "include": ["src", "index.ts"],
+  "exclude": ["node_modules", "dist", "test", "scripts"],
 }
