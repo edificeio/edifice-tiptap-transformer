@@ -27,7 +27,7 @@
     "test:ci": "pnpm run test:docker && pnpm run test:integration:docker"
   },
   "dependencies": {
-    "@edifice.io/tiptap-extensions": "chore-tiptap-v3",
+    "@edifice.io/tiptap-extensions": "develop-pedago",
     "@tiptap/core": "3.32.0",
     "@tiptap/extension-blockquote": "3.32.0",
     "@tiptap/extension-bold": "3.32.0",
