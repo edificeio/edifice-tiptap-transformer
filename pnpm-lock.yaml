@@ -68,6 +68,9 @@ dependencies:
   '@tiptap/extension-list-item':
     specifier: 3.32.0
     version: 3.32.0(@tiptap/extension-list@3.32.0)
+  '@tiptap/extension-mathematics':
+    specifier: 3.32.0
+    version: 3.32.0(@tiptap/core@3.32.0)(@tiptap/pm@3.32.0)(katex@0.16.33)
   '@tiptap/extension-ordered-list':
     specifier: 3.32.0
     version: 3.32.0(@tiptap/extension-list@3.32.0)
@@ -131,6 +134,9 @@ dependencies:
   jsonwebtoken:
     specifier: ^9.0.2
     version: 9.0.2
+  katex:
+    specifier: 0.16.33
+    version: 0.16.33
   pino:
     specifier: 9.9.5
     version: 9.9.5
@@ -1175,6 +1181,18 @@ packages:
       '@tiptap/pm': 3.32.0
     dev: false
 
+  /@tiptap/extension-mathematics@3.32.0(@tiptap/core@3.32.0)(@tiptap/pm@3.32.0)(katex@0.16.33):
+    resolution: {integrity: sha512-8kgfYRKNF3hLbihaBUc4S7tda/URmzcviHEMU24rTr6AC7nKcUHsXvsQJiftvTFgL0/CCVA4PQ1U+NrN6IPyjQ==}
+    peerDependencies:
+      '@tiptap/core': 3.32.0
+      '@tiptap/pm': 3.32.0
+      katex: ^0.16.4 || ^0.17.0 || ^0.18.0
+    dependencies:
+      '@tiptap/core': 3.32.0(@tiptap/pm@3.32.0)
+      '@tiptap/pm': 3.32.0
+      katex: 0.16.33
+    dev: false
+
   /@tiptap/extension-ordered-list@3.32.0(@tiptap/extension-list@3.32.0):
     resolution: {integrity: sha512-htZ5hoMLBkGiDP6M5mGemjOoaBmkrj911wiGoTmMMKzO7qJq9QxUBkLY7ILPaKlUWL8U3ccLdDV2TB/nysp4Jg==}
     peerDependencies:
@@ -1928,6 +1946,11 @@ packages:
     dependencies:
       delayed-stream: 1.0.0
     dev: true
+
+  /commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
 
   /component-emitter@1.3.1:
     resolution: {integrity: sha512-T0+barUSQRTUQASh8bx02dl+DhF54GtIDY13Y3m9oWTklKbb3Wv974meRpeZ3lp1JpLVECWWNHC4vaG2XHXouQ==}
@@ -2789,6 +2812,13 @@ packages:
     dependencies:
       jwa: 1.4.2
       safe-buffer: 5.2.1
+    dev: false
+
+  /katex@0.16.33:
+    resolution: {integrity: sha512-q3N5u+1sY9Bu7T4nlXoiRBXWfwSefNGoKeOwekV+gw0cAXQlz2Ww6BLcmBxVDeXBMUDQv6fK5bcNaJLxob3ZQA==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
     dev: false
 
   /keyv@4.5.4:

@@ -1,0 +1,31 @@
+{
+  "sourceHtml": "<p>L'énergie vaut $E=mc^2$ au repos.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "L'énergie vaut "
+          },
+          {
+            "type": "inlineMath",
+            "attrs": {
+              "latex": "E=mc^2"
+            }
+          },
+          {
+            "type": "text",
+            "text": " au repos."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p>L'énergie vaut <span data-latex=\"E=mc^2\" data-type=\"inline-math\"></span> au repos.</p>"
+}

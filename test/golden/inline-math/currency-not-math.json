@@ -1,0 +1,21 @@
+{
+  "sourceHtml": "<p>Le livre coûte 5 $ au lieu de 10 $ aujourd'hui.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Le livre coûte 5 $ au lieu de 10 $ aujourd'hui."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p>Le livre coûte 5 $ au lieu de 10 $ aujourd'hui.</p>"
+}

@@ -10,11 +10,14 @@
  *   pnpm test:golden:capture                  # every fixture (dangerous on this branch)
  *   pnpm test:golden:capture legacy/my-case    # only fixtures whose path contains this
  */
-import { generateHTML, generateJSON } from '@tiptap/html/server';
+import { generateHTML } from '@tiptap/html/server';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { EXTENSIONS } from '../src/controllers/transformation-controller.js';
+import {
+  EXTENSIONS,
+  parseHtmlAndGenerateJson,
+} from '../src/controllers/transformation-controller.js';
 import { findHtmlFixtures } from '../test/fixture-utils.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -23,7 +26,7 @@ const GOLDEN_DIR = path.resolve(__dirname, '../test/golden');
 
 function captureGolden(fixturePath: string) {
   const sourceHtml = fs.readFileSync(fixturePath, 'utf-8');
-  const json = generateJSON(sourceHtml, EXTENSIONS);
+  const json = parseHtmlAndGenerateJson(sourceHtml, EXTENSIONS);
   const htmlFromJson = generateHTML(json, EXTENSIONS);
 
   const relativePath = path.relative(FIXTURES_DIR, fixturePath);

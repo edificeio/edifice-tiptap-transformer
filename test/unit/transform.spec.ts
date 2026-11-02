@@ -1,9 +1,12 @@
-import { generateHTML, generateJSON } from '@tiptap/html/server';
+import { generateHTML } from '@tiptap/html/server';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { describe, expect, it } from 'vitest';
-import { EXTENSIONS } from '../../src/controllers/transformation-controller.js';
+import {
+  EXTENSIONS,
+  parseHtmlAndGenerateJson,
+} from '../../src/controllers/transformation-controller.js';
 import { findHtmlFixtures } from '../fixture-utils.js';
 import { normalizeHtml } from './normalize-html.js';
 
@@ -65,7 +68,7 @@ describe('TipTap transform — regression against golden references', () => {
     const golden: Golden = JSON.parse(fs.readFileSync(goldenPath, 'utf-8'));
 
     it('HTML source -> JSON matches the golden JSON (no regression on new content)', () => {
-      const json = generateJSON(golden.sourceHtml, EXTENSIONS);
+      const json = parseHtmlAndGenerateJson(golden.sourceHtml, EXTENSIONS);
       expect(json).toEqual(golden.json);
     });
 
@@ -81,7 +84,10 @@ describe('TipTap transform — regression against golden references', () => {
     itRoundTrip(
       `re-parsing the rendered HTML yields the same JSON (round-trip stability)${roundTripLimitation ? ` — skipped: ${roundTripLimitation}` : ''}`,
       () => {
-        const roundTrippedJson = generateJSON(golden.htmlFromJson, EXTENSIONS);
+        const roundTrippedJson = parseHtmlAndGenerateJson(
+          golden.htmlFromJson,
+          EXTENSIONS,
+        );
         expect(roundTrippedJson).toEqual(golden.json);
       },
     );

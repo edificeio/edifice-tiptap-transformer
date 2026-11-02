@@ -14,6 +14,7 @@ import {
   ContentTransformerRequest,
   ContentTransformerResponse,
 } from '../models/transformation-request.js';
+import { convertDollarMath } from '../utils/convert-dollar-math.js';
 
 import { generateText } from '@tiptap/core';
 import { generateHTML, generateJSON } from '@tiptap/html/server';
@@ -35,6 +36,7 @@ import { MathJax } from '@edifice.io/tiptap-extensions/mathjax';
 import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
 import { Video } from '@edifice.io/tiptap-extensions/video';
 
+import { InlineMath } from '@tiptap/extension-mathematics';
 import { Subscript } from '@tiptap/extension-subscript';
 import { Superscript } from '@tiptap/extension-superscript';
 import { TableHeader } from '@tiptap/extension-table-header';
@@ -95,6 +97,11 @@ export const EXTENSIONS = [
   Hyperlink,
   FontFamily,
   MathJax,
+  // Only the inline node: the published `katex` peer dep is never actually
+  // rendered server-side (schema/parseHTML/renderHTML don't touch it), it's
+  // pulled in purely because the package does an unconditional `import
+  // katex` at the top level - don't remove it thinking it's unused.
+  InlineMath,
   Alert,
   Video,
   Audio,
@@ -109,6 +116,16 @@ export const EXTENSIONS = [
 export const ADDITIONAL_EXTENSIONS = new Map<string, any[] | any>([
   ['conversation-history', [ConversationHistory, ConversationHistoryBody]],
 ]);
+
+/**
+ * Single entry point for parsing incoming HTML to JSON: also converts any
+ * literal `$...$` left in the text (see convertDollarMath) - v3's InlineMath
+ * only does that via live-typing input rules, never while parsing a string.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function parseHtmlAndGenerateJson(html: string, extensions: any[]) {
+  return convertDollarMath(generateJSON(html, extensions));
+}
 
 export function transformController(
   req: AuthenticatedRequest,
@@ -158,7 +175,7 @@ export function transformController(
       if (data.htmlContent != null) {
         const start = Date.now();
         cleanHtml = generateHTML(
-          generateJSON(data.htmlContent, extensions),
+          parseHtmlAndGenerateJson(data.htmlContent, extensions),
           extensions,
         );
         updateCounterAndTimer(start, cleanHtmlCounter, cleanHtmlTimer);
@@ -168,13 +185,16 @@ export function transformController(
       // Transforming content to JSON
       if (data.htmlContent != null) {
         const start = Date.now();
-        generatedJsonContent = generateJSON(data.htmlContent, extensions);
+        generatedJsonContent = parseHtmlAndGenerateJson(
+          data.htmlContent,
+          extensions,
+        );
         updateCounterAndTimer(start, h2jCounter, h2jTimer);
       }
       // Cleaning JSON content
       if (data.jsonContent != null) {
         const start = Date.now();
-        cleanJson = generateJSON(
+        cleanJson = parseHtmlAndGenerateJson(
           generateHTML(data.jsonContent, extensions),
           extensions,
         );
@@ -193,7 +213,7 @@ export function transformController(
           plainTextContent = generateText(generatedJsonContent, extensions);
         } else {
           plainTextContent = generateText(
-            generateJSON(data.htmlContent, extensions),
+            parseHtmlAndGenerateJson(data.htmlContent, extensions),
             extensions,
           );
         }

@@ -1,0 +1,31 @@
+{
+  "sourceHtml": "<p>Le livre coûte 5 $ au lieu de 10 $, regarde $E=mc^2$.</p>\n",
+  "json": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Le livre coûte 5 $ au lieu de 10 $, regarde "
+          },
+          {
+            "type": "inlineMath",
+            "attrs": {
+              "latex": "E=mc^2"
+            }
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      }
+    ]
+  },
+  "htmlFromJson": "<p>Le livre coûte 5 $ au lieu de 10 $, regarde <span data-latex=\"E=mc^2\" data-type=\"inline-math\"></span>.</p>"
+}

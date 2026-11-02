@@ -48,6 +48,7 @@
     "@tiptap/extension-italic": "3.32.0",
     "@tiptap/extension-link": "3.32.0",
     "@tiptap/extension-list-item": "3.32.0",
+    "@tiptap/extension-mathematics": "3.32.0",
     "@tiptap/extension-ordered-list": "3.32.0",
     "@tiptap/extension-paragraph": "3.32.0",
     "@tiptap/extension-strike": "3.32.0",
@@ -69,6 +70,7 @@
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "katex": "0.16.33",
     "pino": "9.9.5",
     "pino-http": "10.5.0",
     "prom-client": "^15.1.3"
