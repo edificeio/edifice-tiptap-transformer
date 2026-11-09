@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@edifice.io/tiptap-extensions':
-    specifier: develop-pedago
-    version: 2.6.10-develop-pedago.20261022103835(@edifice.io/utilities@2.6.10-develop-pedago.20261022103835)(@tiptap/core@3.32.0)(@tiptap/extension-blockquote@3.32.0)(@tiptap/extension-bold@3.32.0)(@tiptap/extension-code-block@3.32.0)(@tiptap/extension-code@3.32.0)(@tiptap/extension-document@3.32.0)(@tiptap/extension-hard-break@3.32.0)(@tiptap/extension-heading@3.32.0)(@tiptap/extension-highlight@3.32.0)(@tiptap/extension-horizontal-rule@3.32.0)(@tiptap/extension-image@3.32.0)(@tiptap/extension-italic@3.32.0)(@tiptap/extension-link@3.32.0)(@tiptap/extension-list@3.32.0)(@tiptap/extension-paragraph@3.32.0)(@tiptap/extension-strike@3.32.0)(@tiptap/extension-table@3.32.0)(@tiptap/extension-text-style@3.32.0)(@tiptap/extension-text@3.32.0)(@tiptap/extensions@3.32.0)(@tiptap/html@3.32.0)(@tiptap/pm@3.32.0)(@tiptap/starter-kit@3.32.0)
+    specifier: develop
+    version: 2.6.13-develop.20261109162922(@edifice.io/utilities@2.6.13-develop.20261109162922)(@tiptap/core@3.32.0)(@tiptap/extension-blockquote@3.32.0)(@tiptap/extension-bold@3.32.0)(@tiptap/extension-code-block@3.32.0)(@tiptap/extension-code@3.32.0)(@tiptap/extension-document@3.32.0)(@tiptap/extension-hard-break@3.32.0)(@tiptap/extension-heading@3.32.0)(@tiptap/extension-highlight@3.32.0)(@tiptap/extension-horizontal-rule@3.32.0)(@tiptap/extension-image@3.32.0)(@tiptap/extension-italic@3.32.0)(@tiptap/extension-link@3.32.0)(@tiptap/extension-list@3.32.0)(@tiptap/extension-paragraph@3.32.0)(@tiptap/extension-strike@3.32.0)(@tiptap/extension-table@3.32.0)(@tiptap/extension-text-style@3.32.0)(@tiptap/extension-text@3.32.0)(@tiptap/extensions@3.32.0)(@tiptap/html@3.32.0)(@tiptap/pm@3.32.0)(@tiptap/starter-kit@3.32.0)
   '@tiptap/core':
     specifier: 3.32.0
     version: 3.32.0(@tiptap/pm@3.32.0)
@@ -204,10 +204,10 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
-  /@edifice.io/tiptap-extensions@2.6.10-develop-pedago.20261022103835(@edifice.io/utilities@2.6.10-develop-pedago.20261022103835)(@tiptap/core@3.32.0)(@tiptap/extension-blockquote@3.32.0)(@tiptap/extension-bold@3.32.0)(@tiptap/extension-code-block@3.32.0)(@tiptap/extension-code@3.32.0)(@tiptap/extension-document@3.32.0)(@tiptap/extension-hard-break@3.32.0)(@tiptap/extension-heading@3.32.0)(@tiptap/extension-highlight@3.32.0)(@tiptap/extension-horizontal-rule@3.32.0)(@tiptap/extension-image@3.32.0)(@tiptap/extension-italic@3.32.0)(@tiptap/extension-link@3.32.0)(@tiptap/extension-list@3.32.0)(@tiptap/extension-paragraph@3.32.0)(@tiptap/extension-strike@3.32.0)(@tiptap/extension-table@3.32.0)(@tiptap/extension-text-style@3.32.0)(@tiptap/extension-text@3.32.0)(@tiptap/extensions@3.32.0)(@tiptap/html@3.32.0)(@tiptap/pm@3.32.0)(@tiptap/starter-kit@3.32.0):
-    resolution: {integrity: sha512-8FOsonnOPCnuusMt4Aqo2/AAca0TTtSDTsp6miYlxoQlX5sT35/GXB4nBTNYrifK4O5vb4+4TzAC7qcUER83Hg==}
+  /@edifice.io/tiptap-extensions@2.6.13-develop.20261109162922(@edifice.io/utilities@2.6.13-develop.20261109162922)(@tiptap/core@3.32.0)(@tiptap/extension-blockquote@3.32.0)(@tiptap/extension-bold@3.32.0)(@tiptap/extension-code-block@3.32.0)(@tiptap/extension-code@3.32.0)(@tiptap/extension-document@3.32.0)(@tiptap/extension-hard-break@3.32.0)(@tiptap/extension-heading@3.32.0)(@tiptap/extension-highlight@3.32.0)(@tiptap/extension-horizontal-rule@3.32.0)(@tiptap/extension-image@3.32.0)(@tiptap/extension-italic@3.32.0)(@tiptap/extension-link@3.32.0)(@tiptap/extension-list@3.32.0)(@tiptap/extension-paragraph@3.32.0)(@tiptap/extension-strike@3.32.0)(@tiptap/extension-table@3.32.0)(@tiptap/extension-text-style@3.32.0)(@tiptap/extension-text@3.32.0)(@tiptap/extensions@3.32.0)(@tiptap/html@3.32.0)(@tiptap/pm@3.32.0)(@tiptap/starter-kit@3.32.0):
+    resolution: {integrity: sha512-mYeKpMfaa3X0xst1Q8DmaPQGTXHeWGWfrvq7fpzG+YrNCvt38OpwX6sebJIzXtXsdxRGR9cSJjvHupidDvJ8Kw==}
     peerDependencies:
-      '@edifice.io/utilities': 2.6.10-develop-pedago.20261022103835
+      '@edifice.io/utilities': 2.6.13-develop.20261109162922
       '@tiptap/core': 3.32.0
       '@tiptap/extension-blockquote': 3.32.0
       '@tiptap/extension-bold': 3.32.0
@@ -232,7 +232,7 @@ packages:
       '@tiptap/pm': 3.32.0
       '@tiptap/starter-kit': 3.32.0
     dependencies:
-      '@edifice.io/utilities': 2.6.10-develop-pedago.20261022103835
+      '@edifice.io/utilities': 2.6.13-develop.20261109162922
       '@tiptap/core': 3.32.0(@tiptap/pm@3.32.0)
       '@tiptap/extension-blockquote': 3.32.0(@tiptap/core@3.32.0)(@tiptap/pm@3.32.0)
       '@tiptap/extension-bold': 3.32.0(@tiptap/core@3.32.0)
@@ -258,8 +258,8 @@ packages:
       '@tiptap/starter-kit': 3.32.0
     dev: false
 
-  /@edifice.io/utilities@2.6.10-develop-pedago.20261022103835:
-    resolution: {integrity: sha512-Sy+AhHNTWkJu6y69oe5nCk0CGz3Aen3nI290aFNYENBdMwxMuAE4NWsoEgLHElgz/6cizQT+Zb4YBamJoLl6/w==}
+  /@edifice.io/utilities@2.6.13-develop.20261109162922:
+    resolution: {integrity: sha512-qEGOpnjf7NuTkjdDzTbHccwLhteKdR3kJywwu/iaMOuuYFD9qGHKDVxsngXmqvfAgZ4mKPMZhLse0iIDXE1PFA==}
     dev: false
 
   /@esbuild/aix-ppc64@0.21.5:
@@ -2623,7 +2623,7 @@ packages:
       buffer-image-size: 0.6.4
       entities: 7.0.1
       whatwg-mimetype: 3.0.0
-      ws: 8.22.0
+      ws: 8.22.2
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -4047,8 +4047,8 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: true
 
-  /ws@8.22.0:
-    resolution: {integrity: sha512-Ydggc987+RO0AnWtZ/7Wq9FtNvcrL1b/RO0ud9mWjUPgDrsAAwQSF51sm2hm1XofbU/4jkpGEsLFsZZxU+1DOg==}
+  /ws@8.22.2:
+    resolution: {integrity: sha512-/rEZ2ejown2N5gxVTHUu9bVVC7ttu0/Tgzf5hbTOixR3Fs7mbbXgn2DbdbcKgJOmpQMtrIUWivtYuVMnp/W/yA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
